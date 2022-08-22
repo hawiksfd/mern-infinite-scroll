@@ -59,14 +59,15 @@ const UserList = () => {
                         </thead>
 
                         <tbody>
-                            <tr >
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
+                            {users.map((user, index) => (
+                                <tr key={index}>
+                                    <td>{index+1}</td>
+                                    <td>{user.id}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.gender}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
 
