@@ -10,8 +10,8 @@ const UserList = () => {
     const [tempId, setTempId] = useState(0);
     const [limit, setLimit] = useState(20);
     const [keyword, setKeyword] = useState('');
+    const [query, setQuery] = useState('');
     const [hasMore, setHasMore] = useState(true);
-
 
     useEffect(() => {
         getUsers();
@@ -38,18 +38,27 @@ const UserList = () => {
         setLastId(tempId)
     }
 
+    const searchData = (e) => {
+        e.preventDefault();
+        setLastId(0)
+        setUsers([])
+        setKeyword(query);
+    }
+
     return (
         <div className="container mt-5">
             <div className="columns">
                 <div className="column is-centered">
 
-                    <form>
+                    <form onSubmit={searchData}>
                         <div className="field has-addons">
                             <div className="control is-expanded">
                                 <input 
                                     type="text" 
                                     className="input" 
-                                    placeholder='Find somthing here ...' />
+                                    placeholder='Find somthing here ...'
+                                    value={query}
+                                    onChange={(e)=> setQuery(e.target.value)} />
                             </div>
                             <div className="control">
                                 <button type='submit' className='button is-info'>Search</button>
