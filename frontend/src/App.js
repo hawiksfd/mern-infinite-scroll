@@ -1,7 +1,9 @@
+import UserList from "./components/UserList.jsx";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hallo from App.js</h1>
+    <div>
+      <UserList />
     </div>
   );
 }
